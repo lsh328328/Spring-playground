@@ -22,11 +22,11 @@ public class ApiResponse<T> {
     }
 
     public static <T> ApiResponse<T> success(SuccessCode successCode) {
-        return new ApiResponse<>(StatusCode.SUCCESS.getStatus(), true, successCode.getMessage(), null);
+        return new ApiResponse<>(successCode.getStatus(), true, successCode.getMessage(), null);
     }
 
     public static <T> ApiResponse<T> success(SuccessCode successCode, T data) {
-        return new ApiResponse<>(StatusCode.SUCCESS.getStatus(), true, successCode.getMessage(), data);
+        return new ApiResponse<>(successCode.getStatus(), true, successCode.getMessage(), data);
     }
 
     public static <T> ApiResponse<T> error(ErrorCode errorCode) {

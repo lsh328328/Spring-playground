@@ -11,6 +11,7 @@ import static com.sopt31th.server.common.exception.StatusCode.*;
 public enum ErrorCode {
     // 400 Bad Request
     VALIDATION_EXCEPTION(BAD_REQUEST, "잘못된 요청입니다"),
+    VALIDATION_REQUEST_MISSING_EXCEPTION(BAD_REQUEST, "필수적인 요청 값이 입력되지 않았습니다"),
 
     // 401 UnAuthorized
     UNAUTHORIZED_EXCEPTION(UNAUTHORIZED, "세션이 만료되었습니다. 다시 로그인 해주세요"),
@@ -31,7 +32,7 @@ public enum ErrorCode {
     // 409 Conflict
     CONFLICT_EXCEPTION(CONFLICT, "이미 존재합니다"),
     CONFLICT_NICKNAME_EXCEPTION(CONFLICT, "이미 사용중인 닉네임입니다.\n다른 닉네임을 이용해주세요"),
-    CONFLICT_USER_EXCEPTION(CONFLICT, "이미 해당 계정으로 회원가입하셨습니다.\n로그인 해주세요"),
+    CONFLICT_USER_EXCEPTION(CONFLICT, "이미 해당 계정으로 회원가입하셨습니다."),
 
     // 415 Unsupported Media Type
     UNSUPPORTED_MEDIA_TYPE_EXCEPTION(UNSUPPORTED_MEDIA_TYPE, "해당하는 미디어 타입을 지원하지 않습니다."),
