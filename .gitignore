@@ -44,3 +44,5 @@ application-local.yml
 
 ### application-aws.yml ###
 application-aws.yml
+
+application.properties
