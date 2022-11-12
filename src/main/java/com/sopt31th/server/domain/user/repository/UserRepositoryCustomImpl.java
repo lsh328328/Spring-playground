@@ -1,6 +1,7 @@
 package com.sopt31th.server.domain.user.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.sopt31th.server.domain.user.User;
 import lombok.RequiredArgsConstructor;
 
 import javax.persistence.LockModeType;
@@ -19,5 +20,13 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
                 .from(user)
                 .where(user.emailOrContact.eq(emailOrContact))
                 .fetchFirst() != null;
+    }
+
+    @Override
+    public User existsUser(String emailOrContact) {
+        return queryFactory.selectFrom(user)
+                .where(
+                        user.emailOrContact.eq(emailOrContact)
+                ).fetchOne();
     }
 }

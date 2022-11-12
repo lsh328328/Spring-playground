@@ -11,6 +11,7 @@ import static com.sopt31th.server.common.exception.StatusCode.*;
 public enum ErrorCode {
     // 400 Bad Request
     VALIDATION_EXCEPTION(BAD_REQUEST, "잘못된 요청입니다"),
+    VALIDATION_REQUEST_MISSING_EXCEPTION(BAD_REQUEST, "필수적인 요청 값이 입력되지 않았습니다"),
 
     // 401 UnAuthorized
     UNAUTHORIZED_EXCEPTION(UNAUTHORIZED, "세션이 만료되었습니다. 다시 로그인 해주세요"),

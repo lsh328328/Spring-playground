@@ -1,6 +1,5 @@
 package com.sopt31th.server.controller.auth.dto.request;
 
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.sopt31th.server.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 @Getter
 @NoArgsConstructor
-public class SignupRequest {
+public class LoginRequest {
 
     @NotBlank
     private String emailOrContact;
@@ -18,14 +17,10 @@ public class SignupRequest {
     @NotBlank
     private String password;
 
-    @NotBlank
-    private String passwordCheck;
-
     @Builder
-    public SignupRequest(String emailOrContact, String password, String passwordCheck) {
+    public LoginRequest(String emailOrContact, String password) {
         this.emailOrContact = emailOrContact;
         this.password = password;
-        this.passwordCheck = passwordCheck;
     }
 
     public User toEntity() {

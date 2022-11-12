@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 public enum SuccessCode {
     TEST_SUCCESS(StatusCode.SUCCESS, "테스트가 완료되었습니다,"),
 
-    SIGNUP_SUCCESS(StatusCode.SUCCESS, "회원가입이 완료되었습니다."),
+    SIGNUP_SUCCESS(StatusCode.CREATED, "회원가입이 완료되었습니다."),
     LOGIN_SUCCESS(StatusCode.SUCCESS, "로그인이 완료되었습니다."),
     ;
 
