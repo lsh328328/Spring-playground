@@ -9,8 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RequiredArgsConstructor
 @RestController
 public class ChatController {
@@ -19,7 +17,7 @@ public class ChatController {
 
     @ApiOperation("채팅리스트 조회 페이지 - 채팅리스트를 요청합니다.")
     @GetMapping("chat/list")
-    public ApiResponse<List<ChatResponse>> getChectList() {
+    public ApiResponse<ChatResponse> getChectList() {
         return ApiResponse.success(SuccessCode.GET_CHATLIST_SUCCESS, chatService.getList());
     }
 }

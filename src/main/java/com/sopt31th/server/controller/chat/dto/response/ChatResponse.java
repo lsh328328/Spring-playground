@@ -7,24 +7,18 @@ import lombok.ToString;
 
 @ToString
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PACKAGE)
 public class ChatResponse {
-    private Long id;
 
-    private String chatImage;
+    private String imageUrl;
+    private ChatHeaderResponse[] chatInfo;
 
-    private String name;
-
-    private String content;
-
-    private ChatResponse(final Long id, final String chatImage, final String name, final String content) {
-        this.id = id;
-        this.chatImage = chatImage;
-        this.name = name;
-        this.content = content;
+    public ChatResponse(final String imageUrl, final ChatHeaderResponse[] chatInfo) {
+        this.imageUrl = imageUrl;
+        this.chatInfo = chatInfo;
     }
 
-    public static ChatResponse of(final Long id, final String chatImage, final String name, final String content) {
-        return new ChatResponse(id, chatImage, name, content);
+    public static ChatResponse of(final String imageUrl, final ChatHeaderResponse[] chatInfo) {
+        return new ChatResponse(imageUrl, chatInfo);
     }
 }
