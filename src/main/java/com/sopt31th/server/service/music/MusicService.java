@@ -1,10 +1,12 @@
 package com.sopt31th.server.service.music;
 
+import com.sopt31th.server.controller.music.dto.request.MusicRequest;
 import com.sopt31th.server.controller.music.dto.response.MusicResponse;
 import com.sopt31th.server.domain.music.Music;
 import com.sopt31th.server.domain.music.MusicRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -29,5 +31,11 @@ public class MusicService {
                         m.getSinger(),
                         m.getImage()
                 )).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public MusicResponse register(String imageUrl, MusicRequest request) {
+        Music music = musicRepository.save(request.toEntity(imageUrl));
+        return MusicResponse.of(music.getId(), music.getImage(), music.getTitle(), music.getSinger());
     }
 }
