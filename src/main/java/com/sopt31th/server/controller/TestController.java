@@ -12,12 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-    @Value("${cloud.aws.credentials.access-key}")
-    String test;
     @ApiOperation("컨트롤러 테스트 - Hello Spring 문자열을 출력합니다")
     @GetMapping("/v1/test")
     public ApiResponse<String> test() {
-        System.out.println(test);
         return ApiResponse.success(SuccessCode.TEST_SUCCESS, "Hello Spring");
     }
 }
