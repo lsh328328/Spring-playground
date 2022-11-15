@@ -14,6 +14,9 @@ public enum SuccessCode {
 
     //Music
     GET_MUSICLIST_SUCCESS(StatusCode.SUCCESS, "음악 리스트 조회에 성공했습니다."),
+
+    //Chat
+    GET_CHATLIST_SUCCESS(StatusCode.SUCCESS, "채팅 리스트 조회에 성공했습니다,"),
     ;
 
     private final StatusCode statusCode;
