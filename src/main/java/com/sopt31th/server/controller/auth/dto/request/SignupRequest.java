@@ -1,6 +1,5 @@
 package com.sopt31th.server.controller.auth.dto.request;
 
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.sopt31th.server.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
