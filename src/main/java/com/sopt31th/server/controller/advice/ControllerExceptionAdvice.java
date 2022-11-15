@@ -13,6 +13,7 @@ import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.support.MissingServletRequestPartException;
 
 import java.util.Objects;
 
@@ -43,6 +44,13 @@ public class ControllerExceptionAdvice {
     protected ApiResponse<Object> handleInvalidFormatException(final Exception e) {
         log.error(e.getMessage());
         return ApiResponse.error(ErrorCode.VALIDATION_EXCEPTION);
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MissingServletRequestPartException.class)
+    protected ApiResponse<Object> handleNotFoundFileException(final Exception e) {
+        log.error(e.getMessage());
+        return ApiResponse.error(ErrorCode.NOT_FOUND_EXCEPTION, "이미지가 존재하지 않습니다.");
     }
 
 
