@@ -29,9 +29,9 @@ public class MusicService {
         return musicList.stream()
                 .map(m -> MusicResponse.of(
                         m.getId(),
+                        m.getImage(),
                         m.getTitle(),
-                        m.getSinger(),
-                        m.getImage()
+                        m.getSinger()
                 )).collect(Collectors.toList());
     }
 
