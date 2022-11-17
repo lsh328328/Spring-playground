@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -50,7 +51,14 @@ public class ControllerExceptionAdvice {
     @ExceptionHandler(MissingServletRequestPartException.class)
     protected ApiResponse<Object> handleNotFoundFileException(final Exception e) {
         log.error(e.getMessage());
-        return ApiResponse.error(ErrorCode.NOT_FOUND_EXCEPTION, "이미지가 존재하지 않습니다.");
+        return ApiResponse.error(ErrorCode.NOT_FOUND_EXCEPTION, "누락된 자원이 있습니다.");
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
+    protected  ApiResponse<Object> handleContentTypeException(final Exception e) {
+        log.error(e.getMessage());
+        return ApiResponse.error(ErrorCode.INTERNAL_SERVER_EXCEPTION, "지원하지 않는 Content type입니다.");
     }
 
 
